@@ -1,0 +1,23 @@
+  <div class="navbar">
+    <%= link_to "Flats", flats_path, class: "logo" %>
+    <%= link_to "Create a Flat", new_flat_path %>
+  </div>
+  <h1>All our flats (<%= @flats.count %>)</h1>
+  <div class=row >
+    <div class="container">
+      <% @flats.each do |flat| %>
+        <div class="flat-card">
+          <h2> <%= link_to(flat.name, flat_path(flat)) %></h2>
+          <p class= address><%= flat.address %></p>
+          <div class="icons">
+          <p class="incons_stuff"><i class="fas fa-euro-sign"></i> <%= flat.price_per_night %> </p>
+          <p class="icons_stuff"><i class="fas fa-user-friends"></i> <%= flat.number_of_guests %> </p>
+          <%= link_to "Delete the flat", flat_path(flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+  </div>

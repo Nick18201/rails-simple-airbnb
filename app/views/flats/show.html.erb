@@ -1,0 +1,35 @@
+<%= link_to "Back", flats_path %>
+<%= link_to"Edit", edit_flat_path(@flat) %>
+<div class= row>
+  <div class= column_one>
+    <div class="flat_container">
+      <h1> <%= @flat.name %> </h1>
+      <p> <%= @flat.address %> </p>
+    </div>
+    <div class="flat_description">
+      <p> <%= @flat.description %> </p>
+    </div>
+  </div>
+  <div class="column_two">
+  <p>Book this place!</p>
+  <div class="form_action">
+    <div class="inputgroup-1">
+      <span> from:</span>
+      <input type="text" placeholder="12/10/2020">
+    </div>
+    <div class="inputgroup-2">
+      <span> To:</span>
+      <input type="text" placeholder="19/10/2020">
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+<p> <%= @flat.price_per_night %> </p>
+<p> <%= @flat.number_of_guests %> </p>
+<%= link_to "Delete the flat",
+            flat_path(@flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
